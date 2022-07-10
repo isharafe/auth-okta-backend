@@ -1,11 +1,12 @@
 import OktaJwtVerifier from "@okta/jwt-verifier";
 import express, { Request, Response } from "express";
-
+import * as dotenv from "dotenv";
 
 export const authRouter = express.Router();
+dotenv.config();
 
 const oktaJwtVerifier = new OktaJwtVerifier({
-    issuer: `https://${process.env.OCTA_DOMAIN}/oauth2/default`,
+    issuer: `https://${process.env.OKTA_DOMAIN}/oauth2/default`,
 });
 
 const audience = 'api://default';
